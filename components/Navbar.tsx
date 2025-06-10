@@ -1,4 +1,4 @@
-"use client"
+// "use client";
 import { useState, useEffect } from 'react';
 
 export default function Navbar() {
@@ -8,7 +8,7 @@ export default function Navbar() {
     // Close menu when clicking outside
     useEffect(() => {
         const handleClickOutside = (e) => {
-            if (menuOpen && !e.target.closest('.mobile-menu-container')) {
+            if (menuOpen && !e.target.closest('.navbar-container')) {
                 setMenuOpen(false);
             }
         };
@@ -33,14 +33,16 @@ export default function Navbar() {
 
     return (
         <header className={`z-50 bg-transparent w-full mt-2.5 sm:mt-4.5 px-2 sm:px-4 flex fixed top-0 left-0 right-0 transition-all duration-300 ${
-            scrolled ? 'mt-0 py-0.5 bg-black bg-opacity-80 backdrop-blur-sm' : ''
+            scrolled ? 'mt-0 py-0.5 bg-black bg-opacity-80' : ''
         }`}>
-            {/* Navbar Container - Reduced size */}
-            <div className="relative w-full max-w-4xl mx-auto">
-                <div className="bg-black rounded-[40px] md:rounded-[75px] items-center w-full h-full py-1 px-3 sm:py-1.5 sm:px-4 flex transition-all overflow-hidden">
-                    {/* Full-width layout */}
-                    <div className="flex items-center justify-between w-full">
-                        {/* Logo Section - Optimized sizing */}
+            {/* Combined Navbar Container */}
+            <div className="navbar-container w-full max-w-4xl mx-auto">
+                <div className={`bg-black rounded-[40px] md:rounded-[75px] w-full transition-all overflow-hidden ${
+                    menuOpen ? 'pb-3' : 'py-1 px-3 sm:py-1.5 sm:px-4'
+                }`}>
+                    {/* Top Bar - Always visible */}
+                    <div className="flex items-center justify-between w-full py-1 px-3 sm:px-4">
+                        {/* Logo Section */}
                         <div className="flex items-center min-w-0">
                             <a href={'/'} className="logo-holder flex items-center">
                                 <div className="logo text-white text-3xl sm:text-4xl font-bold mr-1">A</div>
@@ -74,7 +76,7 @@ export default function Navbar() {
                             </nav>
                         </div>
 
-                        {/* Mobile Toggle Button - Compact */}
+                        {/* Mobile Toggle Button */}
                         <div className="flex md:hidden">
                             <button 
                                 onClick={toggleMobileMenu}
@@ -82,47 +84,45 @@ export default function Navbar() {
                                 aria-label={menuOpen ? "Close menu" : "Open menu"}
                             >
                                 {menuOpen ? (
-                                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                                     </svg>
                                 ) : (
-                                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                                     </svg>
                                 )}
                             </button>
                         </div>
                     </div>
-                </div>
 
-                {/* Mobile Dropdown Menu - Compact */}
-                <div className={`mobile-menu-container absolute top-full right-0 mt-1.5 z-40 transition-all duration-300 transform origin-top-right ${
-                    menuOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 invisible'
-                }`}>
-                    <div className="bg-black rounded-xl shadow-xl border border-gray-800 w-36 sm:w-40 overflow-hidden">
-                        <nav className="flex flex-col p-1">
+                    {/* Mobile Dropdown Menu - Integrated into navbar */}
+                    <div className={`md:hidden transition-all duration-300 overflow-hidden ${
+                        menuOpen ? 'max-h-32 opacity-100 mt-2' : 'max-h-0 opacity-0'
+                    }`}>
+                        <div className="flex flex-col px-4 pb-2 space-y-2">
                             <a 
                                 href="#resume" 
                                 onClick={() => setMenuOpen(false)}
-                                className="text-white px-3 py-1.5 hover:bg-gray-800 transition-colors rounded-lg text-center text-xs sm:text-sm"
+                                className="text-white px-3 py-2 hover:bg-gray-800 transition-colors rounded-lg text-center text-sm"
                             >
                                 Resume
                             </a>
                             <a 
                                 href="#skills" 
                                 onClick={() => setMenuOpen(false)}
-                                className="text-white px-3 py-1.5 hover:bg-gray-800 transition-colors rounded-lg text-center text-xs sm:text-sm"
+                                className="text-white px-3 py-2 hover:bg-gray-800 transition-colors rounded-lg text-center text-sm"
                             >
                                 Skills
                             </a>
                             <a 
                                 href="/projects" 
                                 onClick={() => setMenuOpen(false)}
-                                className="text-white px-3 py-1.5 hover:bg-gray-800 transition-colors rounded-lg text-center text-xs sm:text-sm"
+                                className="text-white px-3 py-2 hover:bg-gray-800 transition-colors rounded-lg text-center text-sm"
                             >
                                 Projects
                             </a>
-                        </nav>
+                        </div>
                     </div>
                 </div>
             </div>

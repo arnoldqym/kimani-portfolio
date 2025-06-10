@@ -1,32 +1,129 @@
-import { useState } from 'react';
+"use client"
+import { useState, useEffect } from 'react';
+
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
-    const toggleMobileMenu = () => {
+    const [scrolled, setScrolled] = useState(false);
+
+    // Close menu when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (menuOpen && !e.target.closest('.mobile-menu-container')) {
+                setMenuOpen(false);
+            }
+        };
+
+        document.addEventListener('click', handleClickOutside);
+        return () => document.removeEventListener('click', handleClickOutside);
+    }, [menuOpen]);
+
+    // Handle scroll effect
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 10);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const toggleMobileMenu = (e) => {
+        e.stopPropagation();
         setMenuOpen(!menuOpen);
     }
+
     return (
-        <header className="z-10 bg-transparent justify-center w-screen mt-4.5 px-5 flex fixed top-0 bottom-auto left-0 right-0">
-            <div className="bg-black rounded-[75px] justify-center items-center w-[55%] min-w-[650px] h-full pt-[15px] pb-[15px] flex">
-                <div className="mb-0 pt-0 pb-0 grid grid-rows-auto grid-cols-3 gap-5 auto-cols-fr justify-center p-5">
-                    <div className="justify-center items-center flex-col flex">
-                        <a href={'/'} className="logo-holder">
-                            <div className="logo text-black">A</div> {/* Note: 'text-black' on a black background won't be visible. You might want 'text-white' or a specific logo design here. */}
-                            <div className="logo-text text-gray-300 hover:scale-110">Arnold Kimani</div>
-                        </a>
+        <header className={`z-50 bg-transparent w-full mt-2.5 sm:mt-4.5 px-2 sm:px-4 flex fixed top-0 left-0 right-0 transition-all duration-300 ${
+            scrolled ? 'mt-0 py-0.5 bg-black bg-opacity-80 backdrop-blur-sm' : ''
+        }`}>
+            {/* Navbar Container - Reduced size */}
+            <div className="relative w-full max-w-4xl mx-auto">
+                <div className="bg-black rounded-[40px] md:rounded-[75px] items-center w-full h-full py-1 px-3 sm:py-1.5 sm:px-4 flex transition-all overflow-hidden">
+                    {/* Full-width layout */}
+                    <div className="flex items-center justify-between w-full">
+                        {/* Logo Section - Optimized sizing */}
+                        <div className="flex items-center min-w-0">
+                            <a href={'/'} className="logo-holder flex items-center">
+                                <div className="logo text-white text-3xl sm:text-4xl font-bold mr-1">A</div>
+                                <div className="logo-text text-white text-xs sm:text-sm md:text-base font-medium whitespace-nowrap truncate max-w-[80px] sm:max-w-[120px] md:max-w-none">
+                                    Arnold Kimani
+                                </div>
+                            </a>
+                        </div>
+
+                        {/* Desktop Navigation Links - Centered */}
+                        <div className="hidden md:flex items-center justify-center flex-1">
+                            <nav className="flex justify-center space-x-3 lg:space-x-5 w-full max-w-md">
+                                <a 
+                                    href="#resume" 
+                                    className="nav-link text-white hover:text-blue-400 transition-colors text-center w-full text-sm lg:text-base"
+                                >
+                                    Resume
+                                </a>
+                                <a 
+                                    href="#skills" 
+                                    className="nav-link text-white hover:text-blue-400 transition-colors text-center w-full text-sm lg:text-base"
+                                >
+                                    Skills
+                                </a>
+                                <a 
+                                    href="/projects" 
+                                    className="nav-link text-white hover:text-blue-400 transition-colors text-center w-full text-sm lg:text-base"
+                                >
+                                    Projects
+                                </a>
+                            </nav>
+                        </div>
+
+                        {/* Mobile Toggle Button - Compact */}
+                        <div className="flex md:hidden">
+                            <button 
+                                onClick={toggleMobileMenu}
+                                className="focus:outline-none p-1"
+                                aria-label={menuOpen ? "Close menu" : "Open menu"}
+                            >
+                                {menuOpen ? (
+                                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                ) : (
+                                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                                    </svg>
+                                )}
+                            </button>
+                        </div>
                     </div>
-                    <div className="justify-center items-center flex-col flex">
-                        <nav className="justify-around w-full flex float-right relative">
-                            <a href="#resume" className="text-white tracking-wider ml-0 mr-0 p-1.25 px-2.5 font-ubuntu text-xl font-medium leading-5 no-underline transition-all duration-200 ease-linear hover:text-blue-400 hover:font-medium hover:scale-110">Resume</a>
-                            <a href="#skills" className="text-white tracking-wider ml-0 mr-0 p-1.25 px-2.5 font-2xl font-medium leading-5 no-underline transition-all duration-200 ease-linear hover:text-blue-400 hover:font-medium hover:scale-110">Skills</a> {/* Removed font-ubuntu as it's not a standard Tailwind class */}
-                            <a href="/projects" className="text-white tracking-wider ml-0 mr-0 p-1.25 px-2.5 font-2xl font-medium leading-5 no-underline transition-all duration-200 ease-linear hover:text-blue-400 hover:font-medium hover:scale-110">Projects</a> {/* Removed font-ubuntu */}
+                </div>
+
+                {/* Mobile Dropdown Menu - Compact */}
+                <div className={`mobile-menu-container absolute top-full right-0 mt-1.5 z-40 transition-all duration-300 transform origin-top-right ${
+                    menuOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 invisible'
+                }`}>
+                    <div className="bg-black rounded-xl shadow-xl border border-gray-800 w-36 sm:w-40 overflow-hidden">
+                        <nav className="flex flex-col p-1">
+                            <a 
+                                href="#resume" 
+                                onClick={() => setMenuOpen(false)}
+                                className="text-white px-3 py-1.5 hover:bg-gray-800 transition-colors rounded-lg text-center text-xs sm:text-sm"
+                            >
+                                Resume
+                            </a>
+                            <a 
+                                href="#skills" 
+                                onClick={() => setMenuOpen(false)}
+                                className="text-white px-3 py-1.5 hover:bg-gray-800 transition-colors rounded-lg text-center text-xs sm:text-sm"
+                            >
+                                Skills
+                            </a>
+                            <a 
+                                href="/projects" 
+                                onClick={() => setMenuOpen(false)}
+                                className="text-white px-3 py-1.5 hover:bg-gray-800 transition-colors rounded-lg text-center text-xs sm:text-sm"
+                            >
+                                Projects
+                            </a>
                         </nav>
                     </div>
-                    {/* Mobile Navbar */}
-                    <a href="#" className="mobile-toggle flex justify-center items-center lg:hidden" onClick={toggleMobileMenu}> {/* Added flex, justify-center, items-center and hidden for lg screens for responsiveness */}
-                        <svg className="w-8 h-8 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M5 7h14M5 12h14M5 17h10" />
-                        </svg>
-                    </a>
                 </div>
             </div>
         </header>

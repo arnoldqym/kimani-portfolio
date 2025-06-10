@@ -46,7 +46,7 @@ export default function Navbar() {
                         <div className="flex items-center min-w-0">
                             <a href={'/'} className="logo-holder flex items-center">
                                 <div className="logo text-white text-3xl sm:text-4xl font-bold mr-1">A</div>
-                                <div className="logo-text text-white text-xs sm:text-sm md:text-base font-medium whitespace-nowrap truncate max-w-[80px] sm:max-w-[120px] md:max-w-none">
+                                <div className="logo-text text-white text-[25px] sm:text-sm md:text-base font-medium whitespace-nowrap max-w-[80px] sm:max-w-[120px] md:max-w-none">
                                     Arnold Kimani
                                 </div>
                             </a>
@@ -84,11 +84,11 @@ export default function Navbar() {
                                 aria-label={menuOpen ? "Close menu" : "Open menu"}
                             >
                                 {menuOpen ? (
-                                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                                     </svg>
                                 ) : (
-                                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                                     </svg>
                                 )}
@@ -98,27 +98,27 @@ export default function Navbar() {
 
                     {/* Mobile Dropdown Menu - Integrated into navbar */}
                     <div className={`md:hidden transition-all duration-300 overflow-hidden ${
-                        menuOpen ? 'max-h-32 opacity-100 mt-2' : 'max-h-0 opacity-0'
+                        menuOpen ? 'max-h-36 opacity-100 mt-2' : 'max-h-0 opacity-0'
                     }`}>
                         <div className="flex flex-col px-4 pb-2 space-y-2">
                             <a 
                                 href="#resume" 
                                 onClick={() => setMenuOpen(false)}
-                                className="text-white px-3 py-2 hover:bg-gray-800 transition-colors rounded-lg text-center text-sm"
+                                className="text-white px-3 py-2 hover:bg-gray-800 transition-colors rounded-lg text-center text-[20px]"
                             >
                                 Resume
                             </a>
                             <a 
                                 href="#skills" 
                                 onClick={() => setMenuOpen(false)}
-                                className="text-white px-3 py-2 hover:bg-gray-800 transition-colors rounded-lg text-center text-sm"
+                                className="text-white px-3 py-2 hover:bg-gray-800 transition-colors rounded-lg text-center text-[20px]"
                             >
                                 Skills
                             </a>
                             <a 
                                 href="/projects" 
                                 onClick={() => setMenuOpen(false)}
-                                className="text-white px-3 py-2 hover:bg-gray-800 transition-colors rounded-lg text-center text-sm"
+                                className="text-white px-3 py-2 hover:bg-gray-800 transition-colors rounded-lg text-center text-[20px]"
                             >
                                 Projects
                             </a>

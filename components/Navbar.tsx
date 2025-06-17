@@ -64,11 +64,11 @@ export default function Navbar() {
                                 <Link href={skillsHref} className="nav-link text-white hover:text-blue-400 transition-colors text-center text-base lg:text-lg">
                                     Skills
                                 </Link>
-                                <Link href="/projects" className="nav-link text-white hover:text-blue-400 transition-colors text-center text-base lg:text-lg">
-                                    Recent Projects
-                                </Link>
                                 <Link href="/designs" className="nav-link text-white hover:text-blue-400 transition-colors text-center text-base lg:text-lg">
                                     Designs
+                                </Link>
+                                <Link href="/projects" className="nav-link text-white hover:text-blue-400 transition-colors text-center text-base lg:text-lg">
+                                    Recent Projects
                                 </Link>
                             </nav>
                         </div>
@@ -103,11 +103,11 @@ export default function Navbar() {
                             <Link href={skillsHref} onClick={() => setMenuOpen(false)} className="text-white px-3 py-2 hover:bg-gray-800 transition-colors rounded-lg text-center text-[20px]">
                                 Skills
                             </Link>
-                            <Link href="/projects" onClick={() => setMenuOpen(false)} className="text-white px-3 py-2 hover:bg-gray-800 transition-colors rounded-lg text-center text-[20px]">
-                                Recent Projects
-                            </Link>
                             <Link href="/designs" onClick={() => setMenuOpen(false)} className="text-white px-3 py-2 hover:bg-gray-800 transition-colors rounded-lg text-center text-[20px]">
                                 Designs
+                            </Link>
+                            <Link href="/projects" onClick={() => setMenuOpen(false)} className="text-white px-3 py-2 hover:bg-gray-800 transition-colors rounded-lg text-center text-[20px]">
+                                Recent Projects
                             </Link>
                         </div>
                     </div>

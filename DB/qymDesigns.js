@@ -4,7 +4,7 @@ export const designs = [
     title: 'E-commerce Platform UI',
     category: 'Product Design',
     // Use a specific cover image for the card
-    coverImage: '/imgs/web-photo-1.webp',
+    coverImage: '/imgs/branding-photo-1.webp',
     description: 'A comprehensive UI/UX design for a modern e-commerce platform, focusing on seamless user journeys and conversion optimization.',
     // Add an array for the design process steps
     process: [
@@ -48,6 +48,104 @@ export const designs = [
     // For brevity, I'll omit the rest, but you should update them all
   {
     id: 3,
+    title: 'Botanical Series',
+    category: 'Illustration',
+    coverImage: '/imgs/illustrator-project-1.webp',
+    description: 'A series of detailed botanical illustrations for a nature-themed publication, created with a mix of digital and traditional techniques.',
+    process: [
+        {
+            title: 'Initial Sketches',
+            description: 'Rough sketches were made to establish composition and form for each botanical element.',
+            imageUrl: '/imgs/illustrator-project-1.webp', // Replace with actual process image
+        },
+    ]
+  },
+  {
+    id: 4,
+    title: 'Lorem Ipsum Botanical Series',
+    category: 'Illustration',
+    coverImage: '/imgs/illustrator-project-2.webp',
+    description: 'A series of detailed botanical illustrations for a nature-themed publication, created with a mix of digital and traditional techniques.',
+    process: [
+        {
+            title: 'Initial Sketches',
+            description: 'Rough sketches were made to establish composition and form for each botanical element.',
+            imageUrl: '/imgs/illustrator-project-1.webp', // Replace with actual process image
+        },
+    ]
+  },
+  {
+    id: 5,
+    title: 'Posters Series',
+    category: 'Posters',
+    coverImage: '/imgs/poster-1.webp',
+    description: 'A series of detailed botanical illustrations for a nature-themed publication, created with a mix of digital and traditional techniques.',
+    process: [
+        {
+            title: 'Initial Sketches',
+            description: 'Rough sketches were made to establish composition and form for each botanical element.',
+            imageUrl: '/imgs/illustrator-project-1.webp', // Replace with actual process image
+        },
+    ]
+  },
+  {
+    id: 6,
+    title: 'Poster Series',
+    category: 'Illustration',
+    coverImage: '/imgs/poster-2.webp',
+    description: 'A series of detailed botanical illustrations for a nature-themed publication, created with a mix of digital and traditional techniques.',
+    process: [
+        {
+            title: 'Initial Sketches',
+            description: 'Rough sketches were made to establish composition and form for each botanical element.',
+            imageUrl: '/imgs/illustrator-project-1.webp', // Replace with actual process image
+        },
+    ]
+  },
+  {
+    id: 7,
+    title: 'Poster Series',
+    category: 'Illustration',
+    coverImage: '/imgs/poster-3.webp',
+    description: 'A series of detailed botanical illustrations for a nature-themed publication, created with a mix of digital and traditional techniques.',
+    process: [
+        {
+            title: 'Initial Sketches',
+            description: 'Rough sketches were made to establish composition and form for each botanical element.',
+            imageUrl: '/imgs/illustrator-project-1.webp', // Replace with actual process image
+        },
+    ]
+  },
+  {
+    id: 8,
+    title: 'Poster Series',
+    category: 'Illustration',
+    coverImage: '/imgs/poster-4.webp',
+    description: 'A series of detailed botanical illustrations for a nature-themed publication, created with a mix of digital and traditional techniques.',
+    process: [
+        {
+            title: 'Initial Sketches',
+            description: 'Rough sketches were made to establish composition and form for each botanical element.',
+            imageUrl: '/imgs/illustrator-project-1.webp', // Replace with actual process image
+        },
+    ]
+  },
+  {
+    id: 9,
+    title: 'Botanical Series',
+    category: 'Illustration',
+    coverImage: '/imgs/illustrator-project-1.webp',
+    description: 'A series of detailed botanical illustrations for a nature-themed publication, created with a mix of digital and traditional techniques.',
+    process: [
+        {
+            title: 'Initial Sketches',
+            description: 'Rough sketches were made to establish composition and form for each botanical element.',
+            imageUrl: '/imgs/illustrator-project-1.webp', // Replace with actual process image
+        },
+    ]
+  },
+  {
+    id: 10,
     title: 'Botanical Series',
     category: 'Illustration',
     coverImage: '/imgs/illustrator-project-1.webp',

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { designs } from '@/db/qymDesigns';
 import DesignCard from '@/components/DesignCard';
 import { motion, AnimatePresence } from 'framer-motion';
+import Footer from '@/components/Footer';
 
 export default function Page() {
   const tabs = ['All', 'Product Design', 'Branding', 'Illustration', 'Motion Graphics', 'Posters'];
@@ -16,15 +17,15 @@ export default function Page() {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gray-50 text-gray-800 lg:pt-28 md:pt-28 sm:pt-28 xs:pt-28 pt-28 mx-auto">
+      <div className="min-h-screen text-gray-800 lg:pt-28 md:pt-28 sm:pt-28 xs:pt-28 pt-28 mx-auto">
         <div className="container mx-auto px-4 py-16">
-          <header className="text-center mb-12">
+          <div className="text-center mb-12 z-50">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-2">My Design Portfolio</h1>
             <p className="text-lg text-gray-600">A curated selection of my creative work.</p>
-          </header>
+          </div>
 
           {/* Animated Tabs */}
-          <div className="flex justify-center flex-wrap gap-2 md:gap-4 mb-12">
+          <div className="flex justify-center flex-wrap gap-2 md:gap-4 mb-12 z-50">
             {tabs.map((tab) => (
               <button
                 key={tab}
@@ -49,7 +50,7 @@ export default function Page() {
           {/* Animated Grid */}
           <motion.div
             layout
-            className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 place-items-center"
+            className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 z-0"
           >
             <AnimatePresence>
               {filteredDesigns.map((design) => (
@@ -69,6 +70,7 @@ export default function Page() {
           </motion.div>
         </div>
       </div>
+      <Footer />
     </>
   )
 }

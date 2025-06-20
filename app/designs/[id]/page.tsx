@@ -28,7 +28,7 @@ export default function DesignPage({ params }: PageProps) {
     return (
         <>
             <Navbar />
-            <div className="bg-white text-gray-800 lg:pt-24 md:pt-24 sm:pt-28 xs:pt-28 pt-24 mx-auto max-w-screen-xl">
+            <div className="text-gray-800 lg:pt-24 md:pt-24 sm:pt-28 xs:pt-28 pt-24 mx-auto max-w-screen-xl">
                 <div className="container mx-auto px-4 py-12">
 
                     {/* Header Section */}
@@ -85,7 +85,7 @@ export default function DesignPage({ params }: PageProps) {
                     <div className="mt-20 flex justify-between items-center max-w-6xl mx-auto">
                         <div>
                             {prevDesign && (
-                                <Link href={`/design/${prevDesign.id}`} className="py-2 px-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors duration-300 inline-flex items-center">
+                                <Link href={`/designs/${prevDesign.id}`} className="py-2 px-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors duration-300 inline-flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
                                     Previous
                                 </Link>
@@ -93,7 +93,7 @@ export default function DesignPage({ params }: PageProps) {
                         </div>
                         <div>
                             {nextDesign && (
-                                <Link href={`/design/${nextDesign.id}`} className="py-2 px-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors duration-300 inline-flex items-center">
+                                <Link href={`/designs/${nextDesign.id}`} className="py-2 px-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors duration-300 inline-flex items-center">
                                     Next
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                                 </Link>

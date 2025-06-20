@@ -15,10 +15,8 @@ type DesignCardProps = {
 
 export default function DesignCard({ design }: DesignCardProps) {
   return (
-    <Link href={`/designs/${design.id}`} passHref>
-      <div
-        className="group relative cursor-pointer overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full sm:w-44 md:w-48 lg:w-56 h-auto"
-      >
+    <Link href={`/designs/${design.id}`} passHref className=''>
+      <div className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out w-full h-auto sm:h-48 md:h-64 lg:h-80">
         <Image
           src={design.coverImage} // Changed from design.imageUrl
           alt={design.title}

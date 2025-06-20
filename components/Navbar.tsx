@@ -48,7 +48,7 @@ export default function Navbar() {
                         <div className="flex items-center min-w-0">
                             <Link href={'/'} className="logo-holder flex items-center">
                                 <div className="logo text-white text-3xl sm:text-4xl font-bold mr-1">A</div>
-                                <div className="logo-text text-white text-[25px] sm:text-sm md:text-base font-medium whitespace-nowrap max-w-[80px] sm:max-w-[120px] md:max-w-none">
+                                <div className="logo-text text-white text-[25px] font-medium whitespace-nowrap max-w-[80px] sm:max-w-[120px] md:max-w-none">
                                     Arnold Kimani
                                 </div>
                             </Link>

@@ -10,7 +10,7 @@ export default function Home() {
       <main className="container w-full lg:pt-40 md:pt-28 sm:pt-28 xs:pt-28 pt-28 mx-auto max-w-screen-xl">
         {/* Hero Section - Fixed overflow */}
         <section className="hero flex flex-col lg:flex-row">
-          <div className="hero-blue flex-1 bg-blue-100 rounded-[30px] p-[30px] flex flex-col justify-center">
+          <div className="hero-blue flex-1 bg-blue-300 rounded-[30px] p-[30px] flex flex-col justify-center">
             <div>
               <h1 className="text-4xl font-bold">
                 <small className="text-xl font-normal">Hi I&#39;m</small>
@@ -51,7 +51,7 @@ export default function Home() {
         {/* Skills Section - Fixed overflow */}
         <section id="skills" className="skills container pt-10 pb-10">
           <h2 className="text-5xl font-bold text-center mb-8">
-            <small className="block text-xl font-normal text-gray-600 mb-2">About Me</small>
+            <small className="block text-xl font-normal text-gray-200 mb-2">About Me</small>
             Skills
           </h2>
           <div className="holder-blue bg-blue-100 rounded-[30px] p-[30px] flex flex-col lg:grid lg:grid-cols-3 gap-8 overflow-hidden">

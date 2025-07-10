@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
@@ -37,13 +37,11 @@ export default function Navbar() {
     const skillsHref = isHomepage ? '#skills' : '/#skills';
 
     return (
-        <header className={`z-50 bg-transparent w-full mt-2.5 sm:mt-4.5 px-2 sm:px-4 flex fixed top-0 left-0 right-0 transition-all duration-300 ${
-            scrolled ? 'mt-0 py-0.5 bg-black bg-opacity-80' : ''
-        }`}>
+        <header className={`z-50 bg-transparent w-full mt-2.5 sm:mt-4.5 px-2 sm:px-4 flex fixed top-0 left-0 right-0 transition-all duration-300 ${scrolled ? 'mt-0 py-0.5 bg-black bg-opacity-80' : ''
+            }`}>
             <div className="navbar-container w-full max-w-4xl mx-auto">
-                <div className={`bg-black rounded-[40px] md:rounded-[75px] w-full transition-all overflow-hidden ${
-                    menuOpen ? 'pb-3' : 'py-1 px-3 sm:py-1.5 sm:px-4'
-                }`}>
+                <div className={`bg-black rounded-[40px] md:rounded-[75px] w-full transition-all overflow-hidden ${menuOpen ? 'pb-3' : 'py-1 px-3 sm:py-1.5 sm:px-4'
+                    }`}>
                     <div className="flex items-center justify-between w-full py-1 px-3 sm:px-4">
                         <div className="flex items-center min-w-0">
                             <Link href={'/'} className="logo-holder flex items-center">
@@ -93,9 +91,8 @@ export default function Navbar() {
                     </div>
 
                     {/* MODIFICATION 2: Increased mobile menu container height */}
-                    <div className={`md:hidden transition-all duration-300 overflow-hidden ${
-                        menuOpen ? 'max-h-60 opacity-100 mt-2' : 'max-h-0 opacity-0'
-                    }`}>
+                    <div className={`md:hidden transition-all duration-300 overflow-hidden ${menuOpen ? 'max-h-60 opacity-100 mt-2' : 'max-h-0 opacity-0'
+                        }`}>
                         <div className="flex flex-col px-4 pb-2 space-y-2">
                             <Link href={resumeHref} onClick={() => setMenuOpen(false)} className="text-white px-3 py-2 hover:bg-gray-800 transition-colors rounded-lg text-center text-[20px]">
                                 Resume

@@ -16,30 +16,30 @@ import Image from 'next/image'
 // --- SKILLS DATA with react-icons ---
 const skills = {
   frontend: [
-    { name: 'React',      icon: <DiReact className="w-8 h-8 text-sky-400" /> },
-    { name: 'Next.js',    icon: <SiNextdotjs className="w-8 h-8 text-white" /> },
+    { name: 'React', icon: <DiReact className="w-8 h-8 text-sky-400" /> },
+    { name: 'Next.js', icon: <SiNextdotjs className="w-8 h-8 text-white" /> },
     { name: 'Tailwind CSS', icon: <SiTailwindcss className="w-8 h-8 text-teal-300" /> },
-    { name: 'JavaScript',   icon: <DiJavascript1 className="w-8 h-8 text-yellow-300" /> },
+    { name: 'JavaScript', icon: <DiJavascript1 className="w-8 h-8 text-yellow-300" /> },
   ],
   backend: [
-    { name: 'Node.js',  icon: <DiNodejsSmall className="w-8 h-8 text-green-500" /> },
-    { name: 'Laravel',  icon: <SiLaravel className="w-8 h-8 text-red-500" /> },
-    { name: 'Python',   icon: <DiPython className="w-8 h-8 text-blue-400" /> },
+    { name: 'Node.js', icon: <DiNodejsSmall className="w-8 h-8 text-green-500" /> },
+    { name: 'Laravel', icon: <SiLaravel className="w-8 h-8 text-red-500" /> },
+    { name: 'Python', icon: <DiPython className="w-8 h-8 text-blue-400" /> },
     { name: 'Firebase', icon: <SiFirebase className="w-8 h-8 text-yellow-400" /> },
-    { name: 'MongoDB',  icon: <DiMongodb className="w-8 h-8 text-green-600" /> },
   ],
   databases: [
-    { name: 'MySQL',  icon: <DiMysql className="w-8 h-8 text-blue-500" /> },
+    { name: 'MySQL', icon: <DiMysql className="w-8 h-8 text-blue-500" /> },
     { name: 'SQLite', icon: <SiSqlite className="w-8 h-8 text-blue-200" /> },
     { name: 'Django', icon: <SiDjango className="w-8 h-8 text-green-900" /> },
+    { name: 'MongoDB', icon: <DiMongodb className="w-8 h-8 text-green-600" /> },
   ],
   mobile: [
     { name: 'React Native', icon: <DiReact className="w-8 h-8 text-sky-400" /> },
-    { name: 'Flutter',      icon: <SiFlutter className="w-8 h-8 text-blue-300" /> },
+    { name: 'Flutter', icon: <SiFlutter className="w-8 h-8 text-blue-300" /> },
   ],
   tools: [
     { name: 'Git & GitHub', icon: <SiGithub className="w-8 h-8 text-gray-400" /> },
-    { name: 'Docker',       icon: <DiDocker className="w-8 h-8 text-blue-500" /> },
+    { name: 'Docker', icon: <DiDocker className="w-8 h-8 text-blue-500" /> },
   ],
 }
 
@@ -49,15 +49,15 @@ const projects = [
     title: 'Love Home Mart',
     description: 'A full-stack e-commerce website with product catalog, cart, and auth.',
     imageUrl: '/imgs/loveHomeMart.png',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
+    technologies: ['React', 'Laravel', 'MongoDB', 'Tailwind CSS'],
     liveLink: 'https://lovehomemart.com'
   },
   {
-    title: 'Mobile Weather App',
-    description: 'Cross-platform app showing real-time weather via OpenWeatherMap API.',
-    imageUrl: 'https://placehold.co/600x400/2D3748/E2E8F0/png?text=Project+2',
-    technologies: ['React Native', 'Firebase', 'OpenWeatherMap API'],
-    liveLink: 'https://example.com'
+    title: 'Yieh Boats',
+    description: 'We create solar boats and book trips. Based in Kenya around Lake Victoria.',
+    imageUrl: '/imgs/YiehBoats.png',
+    technologies: ['Vuejs', 'Nodejs', 'Mysql', 'Tailwind CSS', 'Express'],
+    liveLink: 'https://client-neon-xi-74.vercel.app'
   },
   {
     title: 'Portfolio Website V2',
@@ -98,7 +98,7 @@ export default function Page() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-36">
 
           {/* Hero Section */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight bg-clip-text text-transparent bg-[#005b60] pb-4">
               Developer & Creator
             </h1>
@@ -127,43 +127,56 @@ export default function Page() {
 
           {/* Projects Section */}
           <div>
-            <h2 className="text-4xl font-bold text-center mb-12">My Projects</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <h2 className="text-4xl font-bold text-center mb-12 text-black">My Projects</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
                 <div
                   key={index}
-                  className="bg-[#003459] rounded-xl overflow-hidden shadow-lg group transform hover:-translate-y-2 transition-transform duration-300 ease-in-out border border-slate-700"
+                  className="relative group overflow-hidden rounded-xl shadow-lg bg-slate-900"
                 >
-                  <div className="overflow-hidden">
-                    <Image
-                      src={project.imageUrl}
-                      alt={project.title}
-                      width={600}
-                      height={400}
-                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-4">
+                  {/* Project Image */}
+                  <Image
+                    src={project.imageUrl}
+                    alt={project.title}
+                    width={600}
+                    height={400}
+                    className="w-full h-64 object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                  />
+                  {/* Gradient overlay for better text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+
+                  {/* Content that slides up */}
+                  <div
+                    className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-[calc(100%-4.5rem)] 
+                     group-hover:translate-y-0 transition-transform duration-500 ease-in-out"
+                  >
+                    {/* Project Title (Always visible) */}
                     <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
-                    <p className="text-slate-400 mb-4 h-16">{project.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-5">
-                      {project.technologies.map((tech, i) => (
-                        <span
-                          key={i}
-                          className="bg-sky-900/50 text-sky-300 text-xs font-semibold px-3 py-1 rounded-full"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+
+                    {/* Hidden content revealed on hover */}
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
+                      <p className="text-slate-300 mb-4 h-16">{project.description}</p>
+
+                      {/* Technology Tags */}
+                      <div className="flex flex-wrap gap-2 mb-5">
+                        {project.technologies.map((tech, i) => (
+                          <span key={i} className="bg-sky-900/80 text-sky-200 text-xs font-semibold px-3 py-1 rounded-full">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Live Project Button */}
+                      <a
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block text-center bg-sky-600 text-white font-semibold px-6 py-2 rounded-lg 
+                         hover:bg-sky-700 transition-colors duration-300"
+                      >
+                        View Project
+                      </a>
                     </div>
-                    <a
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block w-full text-center bg-gradient-to-r from-[#00adad] to-[#005b60] text-white font-semibold px-6 py-3 rounded-lg hover:from-sky-600 hover:to-blue-700 transition-all duration-300"
-                    >
-                      View Live Project
-                    </a>
                   </div>
                 </div>
               ))}

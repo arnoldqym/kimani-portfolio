@@ -8,14 +8,9 @@ import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
+import type { PageProps } from '@/types/index.d.ts'; // Adjust the import path as necessary
+// Define PageProps type locally
 
-// Corrected PageProps type definition
-type PageProps = {
-    params: {
-        id: string;
-    };
-    searchParams?: { [key: string]: string | string[] | undefined };
-};
 
 export default function DesignPage({ params }: PageProps) {
     const designId = parseInt(params.id, 10);

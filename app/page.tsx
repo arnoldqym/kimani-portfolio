@@ -40,9 +40,9 @@ export default function Home() {
           </div>
           {/* Fixed hero image overflow */}
           <div className="hero-yellow flex-1 bg-[#005b60] rounded-[30px] px-[30px] flex justify-center items-center lg:items-end mt-6 lg:mt-0">
-            <img 
-              src="./imgs/hero-image.png" 
-              alt="Arnold Kimani" 
+            <Image 
+              src="/imgs/hero-image.png" 
+              alt="Arnold Kimani" width={420} height={420}
               className="arnold-image w-full max-w-[280px] sm:max-w-[350px] md:max-w-[420px] md:mt-[-30px] md:mb-[-10px] lg:mt-[-60px] lg:mb-[-10px]" 
             />
           </div>

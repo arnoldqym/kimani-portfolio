@@ -1,19 +1,16 @@
-// designs/[id]/page.tsx
-
 "use client";
 import { designs } from '@/db/qymDesigns';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useParams } from 'next/navigation';
 import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
-import type { PageProps } from '@/types/index.d.ts'; // Adjust the import path as necessary
-// Define PageProps type locally
 
-
-export default function DesignPage({ params }: PageProps) {
-    const designId = parseInt(params.id, 10);
+export default function DesignPage() {
+    const { id } = useParams();
+    const designId = parseInt(id as string, 10);
     const design = designs.find((d) => d.id === designId);
     const currentIndex = designs.findIndex((d) => d.id === designId);
 
@@ -85,10 +82,10 @@ export default function DesignPage({ params }: PageProps) {
                                     </div>
                                 </Link>
                             ) : <div className="hidden md:block"></div>} {/* Placeholder to keep alignment */}
-                            
+
                             {nextDesign && (
                                 <Link href={`/designs/${nextDesign.id}`} className="group relative block text-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 text-right">
-                                     <Image src={nextDesign.coverImage} alt={nextDesign.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                                    <Image src={nextDesign.coverImage} alt={nextDesign.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
                                     <div className="absolute inset-0 bg-black/50" />
                                     <div className="relative h-full flex flex-col justify-between items-end p-8">
                                         <div className="flex items-center text-lg font-semibold">

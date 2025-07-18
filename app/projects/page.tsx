@@ -13,7 +13,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Image from 'next/image'
 
-// --- SKILLS DATA with react-icons ---
+// --- SKILLS & PROJECTS DATA ---
 const skills = {
   frontend: [
     { name: 'React', icon: <DiReact className="w-8 h-8 text-sky-400" /> },
@@ -43,12 +43,11 @@ const skills = {
   ],
 }
 
-// --- PROJECTS DATA ---
 const projects = [
   {
     title: 'Love Home Mart',
     description: 'A full-stack e-commerce website with product catalog, cart, and auth.',
-    imageUrl: '/imgs/loveHomeMart.png',
+    imageUrl: '/imgs/LoveHomeMart.png',
     technologies: ['React', 'Laravel', 'MySql', 'Tailwind CSS'],
     liveLink: 'https://lovehomemart.com'
   },
@@ -107,17 +106,13 @@ export default function Page() {
             </p>
           </div>
 
-          {/* Skills Section (MODIFIED) */}
+          {/* Skills Section */}
           <div className="mb-24">
             <h2 className="text-4xl text-black font-bold text-center mb-12">My Technical Skills</h2>
-            {/* 1. Revert to a 4-column grid for large screens. */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {/* 2. The first three items fill the first three columns. */}
               <SkillBox title="Frontend" skills={skills.frontend} />
               <SkillBox title="Backend" skills={skills.backend} />
               <SkillBox title="Database" skills={skills.databases} />
-
-              {/* 3. The fourth column is a container that stacks its children vertically. */}
               <div className="flex flex-col gap-6">
                 <SkillBox title="Mobile" skills={skills.mobile} />
                 <SkillBox title="Tools & Deployment" skills={skills.tools} />
@@ -140,21 +135,22 @@ export default function Page() {
                     alt={project.title}
                     width={600}
                     height={400}
-                    className="w-full h-64 object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                    className="w-full h-64 object-cover md:transition-transform md:duration-500 md:ease-in-out md:group-hover:scale-110"
                   />
                   {/* Gradient overlay for better text readability */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
 
-                  {/* Content that slides up */}
+                  {/* Content that slides up on DESKTOP ONLY */}
                   <div
-                    className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-[calc(100%-4.5rem)] 
-                     group-hover:translate-y-0 transition-transform duration-500 ease-in-out"
+                    className="absolute bottom-0 left-0 right-0 p-6 md:transform 
+                      md:translate-y-[calc(100%-4.5rem)] md:group-hover:translate-y-0 
+                      transition-transform duration-500 ease-in-out"
                   >
                     {/* Project Title (Always visible) */}
                     <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
 
-                    {/* Hidden content revealed on hover */}
-                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
+                    {/* Hidden content revealed on hover on DESKTOP ONLY */}
+                    <div className="md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 md:delay-200">
                       <p className="text-slate-300 mb-4 h-16">{project.description}</p>
 
                       {/* Technology Tags */}
@@ -172,7 +168,7 @@ export default function Page() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block text-center bg-sky-600 text-white font-semibold px-6 py-2 rounded-lg 
-                         hover:bg-sky-700 transition-colors duration-300"
+                          hover:bg-sky-700 transition-colors duration-300"
                       >
                         View Project
                       </a>

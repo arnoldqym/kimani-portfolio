@@ -49,7 +49,7 @@ const projects = [
     title: 'Love Home Mart',
     description: 'A full-stack e-commerce website with product catalog, cart, and auth.',
     imageUrl: '/imgs/loveHomeMart.png',
-    technologies: ['React', 'Laravel', 'MongoDB', 'Tailwind CSS'],
+    technologies: ['React', 'Laravel', 'MySql', 'Tailwind CSS'],
     liveLink: 'https://lovehomemart.com'
   },
   {
@@ -60,11 +60,11 @@ const projects = [
     liveLink: 'https://client-neon-xi-74.vercel.app'
   },
   {
-    title: 'Portfolio Website V2',
+    title: 'Arnold Kimani Portfolio',
     description: 'A personal portfolio showcasing skills and projects to employers.',
-    imageUrl: 'https://placehold.co/600x400/2D3748/E2E8F0/png?text=Project+3',
+    imageUrl: 'https://placehold.co/600x400/2D3748/E2E8F0/png?text=Arnold+Kimani+Portfolio',
     technologies: ['Next.js', 'Tailwind CSS', 'Vercel'],
-    liveLink: 'https://example.com'
+    liveLink: '/'
   }
 ]
 
@@ -95,7 +95,7 @@ export default function Page() {
     <>
       <Navbar />
       <main className="text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-36">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-38">
 
           {/* Hero Section */}
           <div className="text-center mb-10">

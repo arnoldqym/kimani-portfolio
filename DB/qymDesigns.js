@@ -3,10 +3,8 @@ export const designs = [
     id: 1,
     title: 'E-commerce Platform UI',
     category: 'Product Design',
-    // Use a specific cover image for the card
     coverImage: '/imgs/branding-photo-1.webp',
     description: 'A comprehensive UI/UX design for a modern e-commerce platform, focusing on seamless user journeys and conversion optimization.',
-    // Add an array for the design process steps
     process: [
       {
         title: 'Step 1: Research & Discovery',
@@ -44,8 +42,6 @@ export const designs = [
         }
     ]
   },
-    // ... add a 'process' array to all your other design objects
-    // For brevity, I'll omit the rest, but you should update them all
   {
     id: 3,
     title: 'Botanical Series',

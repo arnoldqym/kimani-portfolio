@@ -7,12 +7,14 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline'; // Using heroicons
+import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 
+// Corrected PageProps type definition
 type PageProps = {
     params: {
         id: string;
     };
+    searchParams?: { [key: string]: string | string[] | undefined };
 };
 
 export default function DesignPage({ params }: PageProps) {
